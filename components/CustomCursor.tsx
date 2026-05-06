@@ -17,6 +17,7 @@ export default function CustomCursor() {
     let mouseY = 0
     let ringX = 0
     let ringY = 0
+    let rafId: number
 
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX
@@ -28,23 +29,28 @@ export default function CustomCursor() {
       ringX += (mouseX - ringX) * 0.12
       ringY += (mouseY - ringY) * 0.12
       ring.style.transform = `translate(${ringX - 16}px, ${ringY - 16}px)`
-      requestAnimationFrame(animate)
+      rafId = requestAnimationFrame(animate)
     }
 
     const onMouseEnterInteractive = () => ring.classList.add('scale-150')
     const onMouseLeaveInteractive = () => ring.classList.remove('scale-150')
 
-    const interactives = document.querySelectorAll('a, button, [data-cursor-hover]')
+    const interactives = Array.from(document.querySelectorAll<Element>('a, button, [data-cursor-hover]'))
     interactives.forEach(el => {
       el.addEventListener('mouseenter', onMouseEnterInteractive)
       el.addEventListener('mouseleave', onMouseLeaveInteractive)
     })
 
     window.addEventListener('mousemove', onMouseMove)
-    animate()
+    rafId = requestAnimationFrame(animate)
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove)
+      cancelAnimationFrame(rafId)
+      interactives.forEach(el => {
+        el.removeEventListener('mouseenter', onMouseEnterInteractive)
+        el.removeEventListener('mouseleave', onMouseLeaveInteractive)
+      })
     }
   }, [])
 
