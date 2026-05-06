@@ -14,45 +14,49 @@ export default function About() {
   const lineRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(textRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-          toggleActions: 'play none none none',
-        },
-        x: -40,
-        opacity: 0,
-        duration: 0.9,
-        ease: 'power3.out',
-      })
+    const mm = gsap.matchMedia()
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      const ctx = gsap.context(() => {
+        gsap.from(textRef.current, {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none',
+          },
+          x: -40,
+          opacity: 0,
+          duration: 0.9,
+          ease: 'power3.out',
+        })
 
-      gsap.from(lineRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 75%',
-          toggleActions: 'play none none none',
-        },
-        scaleX: 0,
-        transformOrigin: 'left',
-        duration: 0.8,
-        delay: 0.3,
-        ease: 'power2.out',
-      })
+        gsap.from(lineRef.current, {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 75%',
+            toggleActions: 'play none none none',
+          },
+          scaleX: 0,
+          transformOrigin: 'left',
+          duration: 0.8,
+          delay: 0.3,
+          ease: 'power2.out',
+        })
 
-      gsap.to(photoRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.5,
-        },
-        y: 60,
-        ease: 'none',
-      })
-    }, sectionRef)
+        gsap.to(photoRef.current, {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1.5,
+          },
+          y: 60,
+          ease: 'none',
+        })
+      }, sectionRef)
+      return () => ctx.revert()
+    })
 
-    return () => ctx.revert()
+    return () => mm.revert()
   }, [])
 
   return (

@@ -22,25 +22,29 @@ export default function Gallery() {
   const gridRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const items = gridRef.current?.querySelectorAll('.gallery-item')
-      if (!items) return
+    const mm = gsap.matchMedia()
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      const ctx = gsap.context(() => {
+        const items = gridRef.current?.querySelectorAll('.gallery-item')
+        if (!items) return
 
-      gsap.from(items, {
-        scrollTrigger: {
-          trigger: gridRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-        },
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.8,
-        stagger: 0.1,
-        ease: 'power2.out',
-      })
-    }, sectionRef)
+        gsap.from(items, {
+          scrollTrigger: {
+            trigger: gridRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.8,
+          stagger: 0.1,
+          ease: 'power2.out',
+        })
+      }, sectionRef)
+      return () => ctx.revert()
+    })
 
-    return () => ctx.revert()
+    return () => mm.revert()
   }, [])
 
   return (
@@ -55,12 +59,13 @@ export default function Gallery() {
         {/* Desktop: masonry-style grid */}
         <div
           ref={gridRef}
-          className="hidden md:grid grid-cols-3 grid-rows-2 gap-3 h-[500px]"
+          className="hidden md:grid gap-3 h-[500px]"
+          style={{ gridTemplateColumns: '2fr 1fr 1fr', gridTemplateRows: '1fr 1fr' }}
         >
           {PHOTOS.map((photo, i) => (
             <motion.div
               key={i}
-              className={`gallery-item relative overflow-hidden ${i === 0 ? 'col-span-1 row-span-2' : ''}`}
+              className={`gallery-item relative overflow-hidden ${i === 0 ? 'row-span-2' : ''}`}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
             >

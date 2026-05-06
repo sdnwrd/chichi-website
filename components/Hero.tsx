@@ -3,8 +3,7 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import gsap from 'gsap'
-
-const NEXT_EVENT = 'SAT 10 MAY'
+import { events } from '@/lib/events'
 
 export default function Hero() {
   const headlineRef = useRef<HTMLDivElement>(null)
@@ -106,7 +105,7 @@ export default function Hero() {
 
         <div ref={pillRef} className="mt-6">
           <span className="inline-block border border-white/30 text-white/80 text-xs tracking-[0.2em] uppercase px-5 py-2.5">
-            Next Event: {NEXT_EVENT}
+            Next Event: {events[0].day} {events[0].dayNumber} {events[0].month}
           </span>
         </div>
       </div>

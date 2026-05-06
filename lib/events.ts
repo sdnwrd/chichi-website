@@ -13,9 +13,9 @@ export interface Event {
 export const events: Event[] = [
   {
     id: '1',
-    date: '2025-05-10',
+    date: '2026-05-09',
     day: 'SAT',
-    dayNumber: '10',
+    dayNumber: '09',
     month: 'MAY',
     name: 'SATURDAY NIGHT LIVE',
     dj: 'DJ KATELI',
@@ -24,9 +24,9 @@ export const events: Event[] = [
   },
   {
     id: '2',
-    date: '2025-05-17',
+    date: '2026-05-16',
     day: 'SAT',
-    dayNumber: '17',
+    dayNumber: '16',
     month: 'MAY',
     name: 'BLACK OUT NIGHT',
     dj: 'SPECIAL GUEST',
@@ -35,9 +35,9 @@ export const events: Event[] = [
   },
   {
     id: '3',
-    date: '2025-05-24',
+    date: '2026-05-23',
     day: 'SAT',
-    dayNumber: '24',
+    dayNumber: '23',
     month: 'MAY',
     name: 'CLOSING OF MAY',
     dj: 'DJ YASIN COLAK',

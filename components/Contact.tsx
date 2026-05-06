@@ -11,21 +11,25 @@ export default function Contact() {
   const contentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(contentRef.current, {
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none none',
-        },
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        ease: 'power2.out',
-      })
-    }, sectionRef)
+    const mm = gsap.matchMedia()
+    mm.add('(prefers-reduced-motion: no-preference)', () => {
+      const ctx = gsap.context(() => {
+        gsap.from(contentRef.current, {
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+          opacity: 0,
+          y: 20,
+          duration: 0.8,
+          ease: 'power2.out',
+        })
+      }, sectionRef)
+      return () => ctx.revert()
+    })
 
-    return () => ctx.revert()
+    return () => mm.revert()
   }, [])
 
   return (
@@ -87,7 +91,7 @@ export default function Contact() {
           </div>
 
           <div className="mt-16 md:mt-20 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row justify-between gap-2 text-[0.65rem] tracking-[0.15em] text-white/15 uppercase">
-            <span>© 2025 ChichiLounge</span>
+            <span>© {new Date().getFullYear()} ChichiLounge</span>
             <span>Fulda · Germany</span>
           </div>
         </div>
