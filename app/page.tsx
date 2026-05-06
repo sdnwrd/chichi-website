@@ -1,12 +1,19 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import About from '@/components/About'
+import Events from '@/components/Events'
+import Gallery from '@/components/Gallery'
+import Contact from '@/components/Contact'
 
 export default function Home() {
   return (
     <main>
       <Navbar />
       <Hero />
-      <div className="h-screen bg-black" />
+      <About />
+      <Events />
+      <Gallery />
+      <Contact />
     </main>
   )
 }
