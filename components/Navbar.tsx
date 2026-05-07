@@ -47,7 +47,7 @@ export default function Navbar() {
               alt="ChichiLounge"
               width={120}
               height={40}
-              className="h-8 w-auto object-contain"
+              className="h-11 w-auto object-contain"
               priority
             />
           </a>
