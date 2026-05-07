@@ -110,8 +110,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div ref={scrollRef} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[3] flex flex-col items-center gap-2">
+      {/* Scroll indicator — desktop only */}
+      <div ref={scrollRef} className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 z-[3] flex-col items-center gap-2">
         <span className="section-eyebrow text-[0.55rem]">Scroll</span>
         <div className="w-px h-8 bg-white/20 animate-pulse" />
       </div>
