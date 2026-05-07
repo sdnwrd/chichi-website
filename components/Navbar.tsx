@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
@@ -39,9 +40,16 @@ export default function Navbar() {
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-            className="text-white font-black tracking-[0.2em] text-sm uppercase"
+            aria-label="ChichiLounge — back to top"
           >
-            ChichiLounge
+            <Image
+              src="/images/navbarlogo.png"
+              alt="ChichiLounge"
+              width={120}
+              height={40}
+              className="h-8 w-auto object-contain"
+              priority
+            />
           </a>
 
           <ul className="hidden md:flex items-center gap-8">
