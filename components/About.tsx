@@ -78,9 +78,8 @@ export default function About() {
               className="w-12 h-px bg-white my-8"
             />
             <p className="text-white/50 text-base leading-relaxed max-w-md">
-              ChichiLounge is Fulda&apos;s premier destination for Afrobeats, Hip-Hop, and R&B.
-              Every Saturday night we bring together the sounds, the crowd, and the energy
-              that defines the city&apos;s nightlife.
+              ChichiLounge is Fulda&apos;s home for Afrobeats, Hip-Hop, and R&B.
+              Every Saturday night, we bring together the music, the people, and the energy that make this city come alive.
             </p>
             <p className="text-white/30 text-sm leading-relaxed max-w-md mt-4">
               From the first beat to last call — this is where memories are made.
