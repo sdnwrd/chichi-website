@@ -93,7 +93,7 @@ export default function Events() {
                     : 'border-white/10 text-white/30 hover:border-white/25 hover:text-white/60'
                 }`}
               >
-                RSVP →
+                FIND US →
               </a>
             </div>
           ))}
