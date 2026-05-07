@@ -53,7 +53,7 @@ export default function Contact() {
               <p className="text-white text-sm font-semibold tracking-wide">ChichiLounge</p>
               <p className="text-white/40 text-sm leading-relaxed mt-1">
                 Fulda, Germany<br />
-                Every Saturday · 22:00 – late
+                Löherstrasse 39-31
               </p>
             </div>
 
@@ -85,13 +85,13 @@ export default function Contact() {
                 href="mailto:info@chichilounge.de"
                 className="text-white/40 text-sm hover:text-white transition-colors duration-300"
               >
-                info@chichilounge.de
+                IG: @chichilounge
               </a>
             </div>
           </div>
 
           <div className="mt-16 md:mt-20 pt-6 border-t border-white/[0.04] flex flex-col sm:flex-row justify-between gap-2 text-[0.65rem] tracking-[0.15em] text-white/15 uppercase">
-            <span>© {new Date().getFullYear()} ChichiLounge</span>
+            <span>© {new Date().getFullYear()} ChichiLounge by Yasin Coolak</span>
             <span>Fulda · Germany</span>
           </div>
         </div>
