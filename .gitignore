@@ -42,3 +42,12 @@ next-env.d.ts
 
 # superpowers
 .superpowers/
+
+# Agenten-Arbeitsdateien gehoeren nicht ins Repo
+.claude/
+.superpowers/
+.agents/
+CLAUDE.md
+AGENTS.md
+.mcp.json
+skills-lock.json
